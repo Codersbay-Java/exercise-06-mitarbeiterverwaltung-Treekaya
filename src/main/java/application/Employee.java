@@ -1,18 +1,30 @@
 package application;
 
-public class Employee {
-	final Department dept;
+import java.util.UUID;
 
-	/*
-	 *
-	 * Your code comes here. Remember you can overload constructors.
-	 *
-	 */
+public class Employee {
+
+
+	public String firstName;
+	public String lastName;
+	public final int ID;
+	public Department dept;
+
+	public Employee(Department dept, String firstName, String lastName) {
+		this.dept = dept;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		ID = App.generateID();
+	}
+
 	public void print() {
-		System.out.println();
+		System.out.println("Der Mitarbeiter "+ ID +
+				" " +firstName + " " + lastName +
+				" arbeitet in der Abteilung " +
+				dept.name + " in " + dept.city);
 	}
 
 	public boolean isEquals(Employee other) {
-		return false;
+		return other.ID == ID;
 	}
 }
